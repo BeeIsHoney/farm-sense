@@ -191,6 +191,7 @@ async function compareRegions() {
     return;
   }
   const region = $('compare-select').value;
+  const firstRegionId = telemetry.region_id;
   if (region === telemetry.region_id) {
     $('watch-status').textContent = 'CHOOSE A DIFFERENT REGION.';
     return;
@@ -202,7 +203,7 @@ async function compareRegions() {
   $('watch-status').textContent = 'LOADING SECOND NASA REGION…';
   try {
     const other = await getJson('/telemetry/region/' + encodeURIComponent(region), {signal:controller.signal});
-    renderComparison(other);
+    if (!controller.signal.aborted && telemetry?.region_id === firstRegionId) renderComparison(other);
   } catch (error) {
     if (error.name !== 'AbortError') $('watch-status').textContent = 'REGION COMPARISON UNAVAILABLE • ' + error.message;
   } finally {
