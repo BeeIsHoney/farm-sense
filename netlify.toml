@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/api/v1/*"
+  to = "https://fieldshiftadaptingfarmswithnasadatabackend-production.up.railway.app/api/v1/:splat"
+  status = 200
+
