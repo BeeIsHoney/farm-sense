@@ -1,0 +1,23 @@
+.language-switch{display:flex;align-items:end;gap:7px}
+.language-switch .pixel-button{min-width:64px}
+.language-switch .pixel-button[aria-pressed="true"]{outline:2px solid #fff5b5;outline-offset:2px;filter:brightness(1.18)}
+.language-switch #lang-my{font-family:"Myanmar Text","Noto Sans Myanmar",sans-serif;font-size:15px;line-height:1.2}
+html[lang="my"] body{font-family:"Myanmar Text","Noto Sans Myanmar",system-ui,sans-serif;font-size:16px;line-height:1.55}
+html[lang="my"] .pixel-button,html[lang="my"] .eyebrow,html[lang="my"] h2,html[lang="my"] .live-pill,html[lang="my"] .tag-pink,html[lang="my"] .focus-alert strong,html[lang="my"] .score-badge,html[lang="my"] .watch-table th,html[lang="my"] .matrix-panel th,html[lang="my"] .provenance-panel summary{font-family:"Myanmar Text","Noto Sans Myanmar",system-ui,sans-serif;letter-spacing:0;line-height:1.5}
+html[lang="my"] .brand-text h1{font-family:var(--pixel-font)}
+html[lang="my"] .telemetry-strip strong{font-family:"Myanmar Text","Noto Sans Myanmar",system-ui,sans-serif;font-size:19px}
+html[lang="my"] .region-control select,html[lang="my"] .form-row select,html[lang="my"] .watch-controls select{font-family:"Myanmar Text","Noto Sans Myanmar",system-ui,sans-serif;font-size:15px}
+html[lang="my"] .panel-title-row strong,html[lang="my"] .panel-context{white-space:normal}
+html[lang="my"] .focus-value{font-family:"Myanmar Text","Noto Sans Myanmar",system-ui,sans-serif;font-size:19px}
+html[lang="my"] .pixel-button{font-size:14px;min-height:51px}
+html[lang="my"] .eyebrow,html[lang="my"] .tag-pink,html[lang="my"] .live-pill,html[lang="my"] .watch-table th,html[lang="my"] .matrix-panel th{font-size:12px}
+html[lang="my"] h2,html[lang="my"] .panel-title-row h2{font-size:17px}
+html[lang="my"] .focus-alert strong{font-size:16px}
+html[lang="my"] .panel-title-row p,html[lang="my"] .focus-alert p,html[lang="my"] .tiny-note{font-size:16px}
+html[lang="my"] .form-row{grid-template-columns:1fr 1fr}
+html[lang="my"] .form-row label:last-child{grid-column:1/-1}
+html[lang="my"] .form-row label,html[lang="my"] .region-control,html[lang="my"] .watch-controls label{font-size:14px}
+html[lang="my"] .status-line{font-size:15px}
+html[lang="my"] .crop-card button{font-size:13px}
+@media(max-width:760px){.language-switch{width:100%}.language-switch .pixel-button{flex:1}html[lang="my"] .header-controls{align-items:stretch}}
+
