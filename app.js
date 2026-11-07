@@ -225,8 +225,7 @@ function renderTelemetry(data) {
   $('temp-meta').textContent = sourceLine(heat);
   $('ndvi-meta').textContent = sourceLine(ndvi);
   $('rain-meta').textContent = sourceLine(rain,'observation_end');
-  $('connection-status').textContent = 'NASA DATA ' + data.status.toUpperCase() + ' • ' + data.region.toUpperCase();
-  $('updated-at').textContent = 'API RESPONSE ' + new Date(data.timestamp).toLocaleString();
+  $('data-error').hidden = true;
   $('api-limits').textContent = (data.limitations || []).find(item => item.includes('SMAP')) || '';
   $('tile-region').textContent = data.region.toUpperCase();
   const point = data.sample_location;
@@ -264,15 +263,15 @@ async function loadTelemetry() {
   resetComparison();
   clearAdvisory();
   $('region-select').disabled = true;
-  $('connection-status').textContent = 'CONNECTING TO NASA DATA…';
+  $('data-error').hidden = true;
   renderFocus();
   try {
     const data = await getJson('/telemetry/region/' + encodeURIComponent($('region-select').value),{signal:controller.signal});
     renderTelemetry(data);
   } catch (error) {
     if (error.name !== 'AbortError') {
-      $('connection-status').textContent = 'NASA DATA UNAVAILABLE • ' + error.message;
-      $('updated-at').textContent = 'RELOAD PAGE TO RETRY';
+      $('data-error').textContent = 'NASA DATA UNAVAILABLE • ' + error.message;
+      $('data-error').hidden = false;
     }
   } finally {
     if (telemetryRequest === controller) {
