@@ -26,7 +26,6 @@
         <div class="language-switch" role="group" aria-label="Language"><button id="lang-en" class="pixel-button orange" type="button" aria-pressed="true">EN</button><button id="lang-my" class="pixel-button orange" type="button" aria-pressed="false">မြန်မာ</button></div>
       </div>
     </header>
-    <div class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="connection-status" role="status" aria-live="polite">CONNECTING TO NASA DATA…</span><span id="updated-at">OBSERVATION TIME —</span></div>
     <main class="dashboard">
       <aside class="left-column">
         <section class="pixel-frame grid-panel" aria-labelledby="grid-title">
@@ -46,6 +45,7 @@
       <div class="right-column">
         <section class="pixel-frame climate-panel" aria-labelledby="climate-title">
           <div class="panel-title-row"><div><span class="eyebrow green-text">NASA FEED / 03</span><h2 id="climate-title">CLIMATE SIGNAL EXPLORER</h2><p>Choose a lens to inspect observed NASA conditions for this region.</p></div><span class="live-pill">● OBSERVED DATA</span></div>
+          <p id="data-error" class="data-error" role="status" aria-live="polite" hidden></p>
           <div class="scenario-tabs" role="group" aria-label="Choose a NASA observation focus"><button type="button" class="pixel-button blue active" data-focus="overview" aria-pressed="true">OVERVIEW</button><button type="button" class="pixel-button orange" data-focus="soil" aria-pressed="false">SOIL WATER</button><button type="button" class="pixel-button blue" data-focus="rain" aria-pressed="false">RAINFALL</button><button type="button" class="pixel-button red" data-focus="heat" aria-pressed="false">HEAT</button></div>
           <div class="focus-alert"><span class="warning-icon" aria-hidden="true">⚠</span><div><strong id="focus-title">LOADING NASA OBSERVATIONS…</strong><p id="focus-description">Observed readings will appear here. This tool does not predict future climate.</p><small id="focus-source">SOURCE —</small></div><span id="focus-value" class="focus-value">—</span></div>
           <div class="telemetry-strip"><div><span>SOIL WETNESS</span><strong id="soil-value">—</strong><small id="soil-meta">—</small></div><div><span>LAND TEMP</span><strong id="temp-value">—</strong><small id="temp-meta">—</small></div><div><span>VEGETATION NDVI</span><strong id="ndvi-value">—</strong><small id="ndvi-meta">—</small></div><div><span>RAINFALL / DAY</span><strong id="rain-value">—</strong><small id="rain-meta">—</small></div></div>
