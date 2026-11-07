@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101218">
+  <meta name="description" content="Field Shift Myanmar — NASA Earth observation decision support preview.">
+  <title>Field Shift Myanmar | NASA data preview</title>
+  <link rel="stylesheet" href="retro.css">
+  <link rel="stylesheet" href="enhancements.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="masthead pixel-frame">
+      <div class="brand-block">
+        <div class="sprout-logo" aria-hidden="true"><span class="sprout-leaves"></span><span class="sprout-stem"></span><span class="sprout-soil"></span></div>
+        <div class="brand-text"><div class="brand-meta"><span class="tag-pink">NASA DATA INSPIRED</span><span class="version">LIVE • MM</span></div><h1>FIELD SHIFT MYANMAR</h1><p>NASA EARTH OBSERVATIONS &amp; PIXEL AGRO-DECISION SYSTEM <span lang="my">(မြန်မာ့စိုက်ပျိုးရေးအတွက်)</span></p></div>
+      </div>
+      <div class="header-controls">
+        <label class="region-control">AGRO-ZONE<select id="region-select"><option value="ayeyarwady">🌱 AYEYARWADY DELTA</option><option value="central_dry_zone">🌾 CENTRAL DRY ZONE</option><option value="shan_highlands">🌿 SHAN HIGHLANDS</option><option value="coastal_rakhine">💧 COASTAL RAKHINE</option></select></label>
+        <button id="eye-button" class="pixel-button blue" type="button" aria-pressed="false">◉ EYE MODE</button>
+        <button id="refresh-button" class="pixel-button orange" type="button">↻ REFRESH</button>
+      </div>
+    </header>
+    <div class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="connection-status" role="status" aria-live="polite">CONNECTING TO NASA DATA…</span><span id="updated-at">OBSERVATION TIME —</span></div>
+    <main class="dashboard">
+      <aside class="left-column">
+        <section class="pixel-frame grid-panel" aria-labelledby="grid-title">
+          <div class="panel-title-row"><div><span class="eyebrow">FARM VIEW / 01</span><h2 id="grid-title">SIMULATED FARM SECTOR GRID</h2></div><strong id="selected-plot">PLOT A-1 SELECTED</strong></div>
+          <div id="plot-grid" class="plot-grid" role="group" aria-label="Choose a planning plot"></div>
+          <p class="tiny-note">SELECT A TILE TO STAGE A PLAN. NASA READINGS ARE REGIONAL POINT SAMPLES, NOT INDIVIDUAL PLOT SENSORS.</p>
+          <div class="tile-strip"><img id="tile-image" alt="NASA GIBS satellite tile for selected region"><div><span>NASA GIBS TILE</span><strong id="tile-region">WAITING FOR DATA</strong><small id="tile-date">OBSERVATION DATE —</small></div></div>
+        </section>
+        <section class="pixel-frame decision-panel" aria-labelledby="decision-title">
+          <div class="panel-title-row"><div><span class="eyebrow green-text">DECISION ENGINE / 02</span><h2 id="decision-title">CROP SUITABILITY</h2></div></div>
+          <div class="form-row"><label>CURRENT CROP<select id="crop-select"><option value="rice">RICE / PADDY</option><option value="sesame">SESAME</option><option value="maize">MAIZE</option><option value="groundnut">GROUNDNUT</option><option value="mung_bean">MUNG BEAN</option></select></label><label>SOIL TYPE<select id="soil-select"><option value="sandy_loam">SANDY LOAM</option><option value="loam">LOAM</option><option value="clay">CLAY</option><option value="silt">SILT</option><option value="unknown">UNKNOWN</option></select></label><label>TARGET SEASON<select id="season-select"><option value="monsoon">MONSOON</option><option value="dry">DRY</option><option value="cool">COOL</option></select></label></div>
+          <button id="evaluate-button" class="pixel-button green full-button" type="button">▶ EVALUATE WITH NASA DATA</button>
+          <p id="advisory-status" class="tiny-note" role="status" aria-live="polite">RUN THE DECISION ENGINE TO SEE LIVE BACKEND OPTIONS.</p>
+          <div id="decision-results" class="decision-results"></div>
+        </section>
+      </aside>
+      <div class="right-column">
+        <section class="pixel-frame climate-panel" aria-labelledby="climate-title">
+          <div class="panel-title-row"><div><span class="eyebrow green-text">NASA FEED / 03</span><h2 id="climate-title">CLIMATE SIGNAL EXPLORER</h2><p>Choose a lens to inspect observed NASA conditions for this region.</p></div><span class="live-pill">● OBSERVED DATA</span></div>
+          <div class="scenario-tabs" role="group" aria-label="Choose a NASA observation focus"><button type="button" class="pixel-button blue active" data-focus="overview" aria-pressed="true">OVERVIEW</button><button type="button" class="pixel-button orange" data-focus="soil" aria-pressed="false">SOIL WATER</button><button type="button" class="pixel-button blue" data-focus="rain" aria-pressed="false">RAINFALL</button><button type="button" class="pixel-button red" data-focus="heat" aria-pressed="false">HEAT</button></div>
+          <div class="focus-alert"><span class="warning-icon" aria-hidden="true">⚠</span><div><strong id="focus-title">LOADING NASA OBSERVATIONS…</strong><p id="focus-description">Observed readings will appear here. This tool does not predict future climate.</p><small id="focus-source">SOURCE —</small></div><span id="focus-value" class="focus-value">—</span></div>
+          <div class="telemetry-strip"><div><span>SOIL WETNESS</span><strong id="soil-value">—</strong><small id="soil-meta">—</small></div><div><span>LAND TEMP</span><strong id="temp-value">—</strong><small id="temp-meta">—</small></div><div><span>VEGETATION NDVI</span><strong id="ndvi-value">—</strong><small id="ndvi-meta">—</small></div><div><span>RAINFALL / DAY</span><strong id="rain-value">—</strong><small id="rain-meta">—</small></div></div>
+        </section>
+        <section class="pixel-frame region-watch-panel" aria-labelledby="watch-title"><div class="panel-title-row"><div><span class="eyebrow cyan-text">REGIONAL WATCH / LIVE NASA DATA</span><h2 id="watch-title">COMPARE TWO MYANMAR REGIONS</h2><p>Check observed differences before planning. Each reading samples one point inside its region.</p></div></div><div class="watch-controls"><label for="compare-select">SECOND REGION<select id="compare-select"><option value="central_dry_zone">CENTRAL DRY ZONE</option><option value="shan_highlands">SHAN HIGHLANDS</option><option value="coastal_rakhine">COASTAL RAKHINE</option><option value="ayeyarwady">AYEYARWADY DELTA</option></select></label><button id="watch-button" class="pixel-button blue" type="button">▥ COMPARE NASA DATA</button></div><p id="watch-status" role="status" aria-live="polite">CHOOSE A SECOND REGION TO LOAD LIVE READINGS.</p><div id="watch-results" class="watch-results" aria-live="polite"></div></section>
+        <section class="pixel-frame crops-panel" aria-labelledby="crops-title">
+          <div class="panel-title-row"><div><span class="eyebrow gold-text">ADVISORY / 04</span><h2 id="crops-title">NASA-INFORMED CROP ROTATIONS</h2></div><span class="panel-context" id="crop-context">RUN EVALUATION FOR OPTIONS</span></div>
+          <div id="crop-cards" class="crop-cards"><p class="empty-state">CROP OPTIONS APPEAR AFTER YOU RUN THE DECISION ENGINE.</p></div>
+        </section>
+        <section class="pixel-frame matrix-panel" aria-labelledby="matrix-title">
+          <div class="panel-title-row"><div><span class="eyebrow cyan-text">DECISION SUPPORT / 05</span><h2 id="matrix-title">CURRENT PLAN VS. NASA OBSERVATIONS</h2><p>Compare your crop choice with observed conditions and a backend rotation option.</p></div></div>
+          <div class="matrix-wrap"><table><thead><tr><th>DECISION METRIC</th><th>CURRENT PLAN</th><th>NASA-ASSISTED VIEW</th></tr></thead><tbody id="matrix-body"><tr><td>CROP CHOICE</td><td id="matrix-crop">RICE / PADDY</td><td id="matrix-option">RUN EVALUATION</td></tr><tr><td>SOIL WATER</td><td>FIELD CHECK NEEDED</td><td id="matrix-soil">WAITING FOR NASA DATA</td></tr><tr><td>LAND HEAT</td><td>LOCAL CONDITIONS VARY</td><td id="matrix-heat">WAITING FOR NASA DATA</td></tr><tr><td>RAINFALL</td><td>HISTORICAL PATTERN UNKNOWN</td><td id="matrix-rain">WAITING FOR NASA DATA</td></tr></tbody></table></div>
+        </section>
+        <div class="bottom-panels"><section class="pixel-frame irrigation-panel" aria-labelledby="irrigation-title"><span class="eyebrow cyan-text">FIELD ACTION / 06</span><h2 id="irrigation-title">SMART IRRIGATION CHECK</h2><p id="irrigation-detail">Run the decision engine to check soil and rainfall observations.</p><div class="action-bar"><span>ACTION</span><strong id="irrigation-action">AWAITING ADVISORY</strong></div></section><section class="pixel-frame pest-panel" aria-labelledby="pest-title"><span class="eyebrow orange-text">FIELD ACTION / 07</span><h2 id="pest-title">PEST &amp; HEAT STRESS SCREEN</h2><p id="pest-detail">A screening score and land temperature will appear after evaluation.</p><div class="action-bar"><span>SCREENING SCORE</span><strong id="pest-score">—</strong></div></section></div>
+        <details class="pixel-frame provenance-panel"><summary>▣ DATA SOURCES &amp; LIMITATIONS <span>OPEN DETAILS</span></summary><p id="sample-info">WAITING FOR REGION SAMPLE LOCATION.</p><ul id="source-list"></ul><p class="catalog-note" id="catalog-note">CMR catalog matches are not exact pixel provenance.</p><ul id="limitations-list"></ul></details>
+        <p class="data-disclaimer">FIELD SHIFT IS A HACKATHON PREVIEW. NASA VALUES ARE REGIONAL POINT SAMPLES. ROTATION, IRRIGATION AND PEST OUTPUTS ARE SCREENING RULES, NOT FORECASTS OR VERIFIED FIELD MEASUREMENTS. <span id="api-limits"></span></p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
