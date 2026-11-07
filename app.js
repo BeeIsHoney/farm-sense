@@ -263,7 +263,6 @@ async function loadTelemetry() {
   resetComparison();
   clearAdvisory();
   $('region-select').disabled = true;
-  $('refresh-button').disabled = true;
   $('connection-status').textContent = 'CONNECTING TO NASA DATA…';
   renderFocus();
   try {
@@ -272,12 +271,11 @@ async function loadTelemetry() {
   } catch (error) {
     if (error.name !== 'AbortError') {
       $('connection-status').textContent = 'NASA DATA UNAVAILABLE • ' + error.message;
-      $('updated-at').textContent = 'RETRY WITH REFRESH';
+      $('updated-at').textContent = 'RELOAD PAGE TO RETRY';
     }
   } finally {
     if (telemetryRequest === controller) {
       $('region-select').disabled = false;
-      $('refresh-button').disabled = false;
     }
   }
 }
@@ -378,7 +376,6 @@ document.querySelectorAll('[data-focus]').forEach(button => button.addEventListe
   renderFocus();
 }));
 $('region-select').addEventListener('change',loadTelemetry);
-$('refresh-button').addEventListener('click',loadTelemetry);
 $('evaluate-button').addEventListener('click',evaluate);
 $('watch-button').addEventListener('click',compareRegions);
 $('eye-button').addEventListener('click',() => setEyeMode(!document.body.classList.contains('eye-mode')));
