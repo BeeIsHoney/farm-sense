@@ -8,7 +8,9 @@
   <title>Field Shift Myanmar | NASA data preview</title>
   <link rel="stylesheet" href="retro.css">
   <link rel="stylesheet" href="enhancements.css">
+  <link rel="stylesheet" href="language.css">
   <script defer src="app.js"></script>
+  <script defer src="i18n.js"></script>
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -21,7 +23,7 @@
       <div class="header-controls">
         <label class="region-control">AGRO-ZONE<select id="region-select"><option value="ayeyarwady">🌱 AYEYARWADY DELTA</option><option value="central_dry_zone">🌾 CENTRAL DRY ZONE</option><option value="shan_highlands">🌿 SHAN HIGHLANDS</option><option value="coastal_rakhine">💧 COASTAL RAKHINE</option></select></label>
         <button id="eye-button" class="pixel-button blue" type="button" aria-pressed="false">◉ EYE MODE</button>
-        <button id="refresh-button" class="pixel-button orange" type="button">↻ REFRESH</button>
+        <div class="language-switch" role="group" aria-label="Language"><button id="lang-en" class="pixel-button orange" type="button" aria-pressed="true">EN</button><button id="lang-my" class="pixel-button orange" type="button" aria-pressed="false">မြန်မာ</button></div>
       </div>
     </header>
     <div class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="connection-status" role="status" aria-live="polite">CONNECTING TO NASA DATA…</span><span id="updated-at">OBSERVATION TIME —</span></div>
