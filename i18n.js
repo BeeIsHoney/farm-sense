@@ -1,6 +1,7 @@
 // Preserve the English API text as the source so switching languages never changes data.
 const myText = {
   'NASA DATA INSPIRED':'NASA ဒေတာအခြေပြု',
+  'Field Shift pixel farm logo':'Field Shift pixel လယ်မြေလိုဂို',
   'LIVE • MM':'တိုက်ရိုက် • မြန်မာ',
   'NASA EARTH OBSERVATIONS & PIXEL AGRO-DECISION SYSTEM':'NASA မြေကြီးလေ့လာမှုနှင့် စိုက်ပျိုးရေးဆုံးဖြတ်ချက် အထောက်အကူပြုစနစ်',
   'AGRO-ZONE':'စိုက်ပျိုးရေးဒေသ',

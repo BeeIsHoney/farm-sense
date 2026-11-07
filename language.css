@@ -2,6 +2,10 @@
 .data-error{margin:0 0 16px;padding:12px;border:2px solid var(--red);background:#361c23;color:#ffe5e7;font-size:18px}
 .data-error[hidden]{display:none}
 .dashboard{margin-top:28px}
+.sprout-logo{object-fit:contain;animation:logo-bob 2.5s steps(3,end) infinite}
+@keyframes logo-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.eye-mode .sprout-logo{animation:none}
+@media(prefers-reduced-motion:reduce){.sprout-logo{animation:none}}
 .language-switch .pixel-button{min-width:64px}
 .language-switch .pixel-button[aria-pressed="true"]{outline:2px solid #fff5b5;outline-offset:2px;filter:brightness(1.18)}
 .language-switch #lang-my{font-family:"Myanmar Text","Noto Sans Myanmar",sans-serif;font-size:15px;line-height:1.2}
